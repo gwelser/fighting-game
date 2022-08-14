@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		.container {
+			display: inline-block;
+			position: relative;
+		}
+
+		.hud {
+			align-items: center;
+			display: flex;
+			left: 0;
+			padding: 20px;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		.healthbar-container {
+			border: 3px solid rgba(255,255,255,.8);
+			overflow: hidden;
+			position: relative;
+			height: 30px;
+			width: 100%;
+		}
+
+		.healthbar-background {
+			background-color: rgba(255,255,255, .8);
+			height: 30px;
+			width: 100%;
+		}
+
+		.healthbar {
+			background-color: #60A5FA;
+			bottom: 0;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		.player1 .healthbar {
+			right: 0;
+		}
+		
+		.player2 .healthbar {
+			left: 0;
+		}
+		
+		.player1.healthbar-container {
+			border-radius: 8px 0 0 8px;
+			border-width: 3px 0 3px 3px;
+			display: flex;
+			justify-content: flex-end;
+		}
+		
+		.player2.healthbar-container {
+			border-radius: 0 8px 8px 0;
+			border-width: 3px 3px 3px 0;
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		.player1.healthbar-container .healthbar-background {
+			width: 100%;
+		}
+
+		.timer,
+		.gameEnd {
+			font-family: 'VT323', monospace;
+			text-shadow: 1px -1px 1px black;
+		}
+
+		.timer {
+			align-items: center;
+			background-color: #3B82F6;
+			border-radius: 11px;
+			display: flex;
+			color: white;
+			flex-shrink: 0;
+			font-size: 64px;
+			height: 100px;
+			justify-content: center;
+			width: 100px;
+		}
+
+		.gameEnd {
+			color: white;
+			display: flex;
+			font-size: 72px;
+			justify-content: center;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="hud">
+			<div class="healthbar-container player1">
+				<div class="healthbar-background"></div>
+				<div id="player1" class="healthbar"></div>
+			</div>
+			<div id="timer" class="timer">60</div>
+			<div class="healthbar-container player2">
+				<div class="healthbar-background"></div>
+				<div id="player2" class="healthbar"></div>
+			</div>
+		</div>
+		<div id="gameEnd" class="gameEnd"></div>
+		<canvas></canvas>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/Sprite.js"></script>
+	<script src="js/Fighter.js"></script>
+	<script src="index.js"></script>
+</body>
+
+</html>
